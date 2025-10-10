@@ -53,7 +53,7 @@ export default function ContactPage() {
                 <section className="bg-background pt-32 pb-16 md:pt-40 md:pb-24">
                     <div className="mx-auto max-w-6xl px-6">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center">
-                            Let's Build Secure, Scalable Systems Together
+                            Let&apos;s Build Secure, Scalable Systems Together
                         </h2>
                     </div>
                 </section>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                                     <CardHeader>
                                         <CardTitle className="text-2xl mb-4">Get Started</CardTitle>
                                         <p className="text-muted-foreground leading-relaxed">
-                                            Tell us about your project goals. We'll respond with a concise plan outlining 
+                                            Tell us about your project goals. We&apos;ll respond with a concise plan outlining 
                                             our approach, proposed timelines, resourcing, and budget ranges. Our team is 
                                             ready to engage with clients across US, Europe, Singapore, and Israel time zones.
                                         </p>
@@ -215,7 +215,7 @@ export default function ContactPage() {
                                                 className="mt-1 size-4 rounded border-input"
                                             />
                                             <Label htmlFor="consent" className="text-sm font-normal cursor-pointer">
-                                                I agree to GIC's Privacy Policy and consent to being contacted about my inquiry.
+                                                I agree to GIC&apos;s Privacy Policy and consent to being contacted about my inquiry.
                                             </Label>
                                         </div>
 

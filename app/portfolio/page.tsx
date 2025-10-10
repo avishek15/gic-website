@@ -70,16 +70,16 @@ const projects = [
 ];
 
 // Filter options - will be used when filters are activated
-const sectors = [
-    "All",
-    "e-Governance",
-    "Healthcare",
-    "Education",
-    "Agriculture",
-    "Justice",
-    "Smart Cities",
-];
-const statuses = ["All", "Delivered", "Pilot", "Concept"];
+// const sectors = [
+//     "All",
+//     "e-Governance",
+//     "Healthcare",
+//     "Education",
+//     "Agriculture",
+//     "Justice",
+//     "Smart Cities",
+// ];
+// const statuses = ["All", "Delivered", "Pilot", "Concept"];
 
 export default function PortfolioPage() {
     // Filter state - commented out until filters are activated

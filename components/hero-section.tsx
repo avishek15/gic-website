@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { TextEffect } from "@/components/ui/text-effect";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { ArrowRight } from "lucide-react";
@@ -50,7 +49,7 @@ export default function HeroSection() {
                             as="p"
                             className="mt-8 max-w-2xl text-pretty text-lg text-muted-foreground mx-auto lg:mx-0"
                         >
-                            Since 2013, we've partnered with governments and
+                            Since 2013, we&apos;ve partnered with governments and
                             enterprises to modernize critical
                             services—delivering 130+ projects that put citizens
                             first.

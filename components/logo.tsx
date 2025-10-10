@@ -3,10 +3,8 @@ import Image from "next/image";
 
 export const Logo = ({
     className,
-    uniColor,
 }: {
     className?: string;
-    uniColor?: boolean;
 }) => {
     return (
         <div className={cn("flex items-center -gap-2", className)}>

@@ -28,26 +28,6 @@ import {
     ArrowRight,
 } from "lucide-react";
 
-const transitionVariants = {
-    item: {
-        hidden: {
-            opacity: 0,
-            filter: "blur(12px)",
-            y: 12,
-        },
-        visible: {
-            opacity: 1,
-            filter: "blur(0px)",
-            y: 0,
-            transition: {
-                type: "spring" as const,
-                bounce: 0.3,
-                duration: 1.5,
-            },
-        },
-    },
-};
-
 const capabilities = [
     {
         icon: Database,
@@ -302,7 +282,7 @@ export default function Home() {
                 >
                     <div className="mx-auto max-w-4xl px-6 text-center">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                            Let's modernize critical services—securely and at
+                            Let&apos;s modernize critical services—securely and at
                             scale
                         </h2>
                         <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">

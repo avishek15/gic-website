@@ -153,7 +153,7 @@ export default function AboutPage() {
                                 Leadership Team
                             </h2>
                             <p className="text-lg text-muted-foreground">
-                                Meet the leaders driving GIC's vision and
+                                Meet the leaders driving GIC&apos;s vision and
                                 delivery excellence
                             </p>
                         </div>
@@ -327,7 +327,7 @@ export default function AboutPage() {
                             Partner with a team committed to your success
                         </h2>
                         <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-                            Let's discuss how GIC can help modernize your
+                            Let&apos;s discuss how GIC can help modernize your
                             systems and deliver measurable outcomes.
                         </p>
                         <Button size="lg" variant="secondary" asChild>

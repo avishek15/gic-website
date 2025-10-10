@@ -5,7 +5,6 @@ import { motion, useSpring, useTransform } from "motion/react";
 import Image from "next/image";
 
 export function Hero3DLogo() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isMobile, setIsMobile] = useState(false);
     const logoRef = useRef<HTMLDivElement>(null);
 
