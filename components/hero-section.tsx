@@ -49,8 +49,8 @@ export default function HeroSection() {
                             as="p"
                             className="mt-8 max-w-2xl text-pretty text-lg text-muted-foreground mx-auto lg:mx-0"
                         >
-                            Since 2013, we&apos;ve partnered with governments and
-                            enterprises to modernize critical
+                            Since 2013, we&apos;ve partnered with governments
+                            and enterprises to modernize critical
                             services—delivering 130+ projects that put citizens
                             first.
                         </TextEffect>
@@ -88,7 +88,7 @@ export default function HeroSection() {
                                     size="lg"
                                     className="rounded-xl px-5 text-base"
                                 >
-                                    <Link href="#contact">
+                                    <Link href="/contact">
                                         <span className="text-nowrap">
                                             Get in touch
                                         </span>
@@ -102,7 +102,7 @@ export default function HeroSection() {
                                 variant="ghost"
                                 className="h-10.5 rounded-xl px-5 text-base"
                             >
-                                <Link href="#work">
+                                <Link href="/portfolio">
                                     <span className="text-nowrap">
                                         View our work
                                     </span>

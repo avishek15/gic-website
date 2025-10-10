@@ -282,8 +282,8 @@ export default function Home() {
                 >
                     <div className="mx-auto max-w-4xl px-6 text-center">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                            Let&apos;s modernize critical services—securely and at
-                            scale
+                            Let&apos;s modernize critical services—securely and
+                            at scale
                         </h2>
                         <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
                             Ready to transform your digital infrastructure? Get
@@ -291,9 +291,7 @@ export default function Home() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" variant="secondary" asChild>
-                                <a href="mailto:contact@guardianinfoconsultants.com">
-                                    Talk to us
-                                </a>
+                                <Link href="/contact">Talk to us</Link>
                             </Button>
                             <Button
                                 size="lg"
@@ -301,7 +299,7 @@ export default function Home() {
                                 asChild
                                 className="bg-transparent border-primary-foreground/20 hover:bg-primary-foreground/10 text-primary-foreground"
                             >
-                                <Link href="#work">View case studies</Link>
+                                <Link href="/portfolio">View case studies</Link>
                             </Button>
                         </div>
                     </div>

@@ -3,20 +3,16 @@ import Link from "next/link";
 
 const links = [
     {
-        title: "Capabilities",
-        href: "#capabilities",
+        title: "About",
+        href: "/about",
     },
     {
-        title: "Our Work",
-        href: "#work",
-    },
-    {
-        title: "Why GIC",
-        href: "#why-gic",
+        title: "Portfolio",
+        href: "/portfolio",
     },
     {
         title: "Contact",
-        href: "#contact",
+        href: "/contact",
     },
 ];
 

@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import {
     CheckCircle2,
     Users,
@@ -18,6 +19,7 @@ import {
     Globe2,
     FileText,
     TrendingUp,
+    Linkedin,
 } from "lucide-react";
 
 const metrics = [
@@ -31,20 +33,23 @@ const team = [
     {
         name: "Partha P. Roy Choudhary",
         role: "Founder & Strategic Advisor",
-        bio: "Established GIC in 2013 with a vision to deliver world-class technology solutions. Provides critical governance, legal oversight, and investment strategy while guiding the company's long-term growth trajectory and stakeholder relationships.",
-        image: "/team/parth.jpg", // Placeholder - will need actual photos
+        bio: "Veteran from the Indian Army (Major, Ladakh Scouts, served in Siachen) and Harvard Business School & Oxford alumnus. Former Commercial Lead at Lockheed Martin (Japan, India & SE Asia) and Director Missions at ICEYE. Previously advised Government of India's Make in India initiative. Established GIC in 2013, providing strategic governance, legal oversight, and investment strategy while guiding long-term growth and stakeholder relationships.",
+        image: "/partha.webp",
+        linkedin: "https://www.linkedin.com/in/pprc",
     },
     {
         name: "Nikhil Hakla",
         role: "Managing Director & Chief Executive Officer",
-        bio: "Drives strategic vision, business development, and client outcomes across multi-agency programs. Leads organizational growth, partnership initiatives, and ensures alignment between client objectives and delivery execution.",
-        image: "/team/nikhil.jpg", // Placeholder - will need actual photos
+        bio: "AI expert and network engineer with 10+ years of experience spanning AI/ML, cybersecurity, and network infrastructure. Serial entrepreneur leading multiple ventures including Rajasthan Desi Food Cart Bazaar, Timeless Dwellings (heritage property preservation), and Grandeur Gala Wedding. Drives GIC's strategic vision, business development, and client outcomes across multi-agency programs, ensuring alignment between objectives and delivery excellence.",
+        image: "/nikhil.webp",
+        linkedin: "https://www.linkedin.com/in/nikhil-hakla-54597416b",
     },
     {
         name: "Avishek Majumder",
         role: "Lead AI Engineer & Chief Experience Officer",
-        bio: "Wears multiple executive hats across technology, operations, and innovation. Spearheads AI-driven solution architecture, oversees platform security and delivery excellence, drives technical strategy, and ensures exceptional client experiences across all engagements.",
-        image: "/team/avishek.jpg", // Placeholder - will need actual photos
+        bio: "Develops data-driven solutions combining AI, analytics, and digital marketing to accelerate business growth. Deep Learning and Software Engineering specialist who wears multiple executive hats across technology, operations, and innovation. Spearheads AI-driven solution architecture, oversees platform security and delivery excellence, drives technical strategy, and ensures exceptional client experiences across all engagements.",
+        image: "/avishek.webp",
+        linkedin: "https://www.linkedin.com/in/avishekmajumder",
     },
 ];
 
@@ -159,10 +164,23 @@ export default function AboutPage() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {team.map((member, index) => (
-                                <Card key={index} className="text-center">
-                                    <CardHeader>
-                                        <div className="mb-4 mx-auto w-32 h-32 rounded-full bg-muted flex items-center justify-center">
-                                            <Users className="size-12 text-muted-foreground" />
+                                <Card
+                                    key={index}
+                                    className="text-center flex flex-col"
+                                >
+                                    <CardHeader className="flex-1 flex flex-col items-center">
+                                        <div className="mb-4 mx-auto w-32 h-32 rounded-full bg-muted flex items-center justify-center overflow-hidden">
+                                            {member.image ? (
+                                                <Image
+                                                    src={member.image}
+                                                    alt={member.name}
+                                                    width={128}
+                                                    height={128}
+                                                    className="w-full h-full object-cover dark:brightness-90"
+                                                />
+                                            ) : (
+                                                <Users className="size-12 text-muted-foreground" />
+                                            )}
                                         </div>
                                         <CardTitle className="text-xl mb-2">
                                             {member.name}
@@ -170,9 +188,28 @@ export default function AboutPage() {
                                         <CardDescription className="text-sm font-semibold text-primary mb-3">
                                             {member.role}
                                         </CardDescription>
-                                        <p className="text-sm text-muted-foreground leading-relaxed">
+                                        <p className="text-sm text-muted-foreground leading-relaxed text-justify hyphens-auto max-w-none flex-1">
                                             {member.bio}
                                         </p>
+                                        {member.linkedin && (
+                                            <div className="mt-4 flex justify-center">
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    asChild
+                                                >
+                                                    <Link
+                                                        href={member.linkedin}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex items-center gap-2"
+                                                    >
+                                                        <Linkedin className="size-4" />
+                                                        LinkedIn Profile
+                                                    </Link>
+                                                </Button>
+                                            </div>
+                                        )}
                                     </CardHeader>
                                 </Card>
                             ))}
