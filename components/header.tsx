@@ -9,10 +9,9 @@ import { cn } from "@/lib/utils";
 // Removed scroll-based background logic; header background is always visible
 
 const menuItems = [
-    { name: "Capabilities", href: "#capabilities" },
-    { name: "Our Work", href: "#work" },
-    { name: "Why GIC", href: "#why-gic" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "/about" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Contact", href: "/contact" },
 ];
 
 export const HeroHeader = () => {
@@ -70,7 +69,7 @@ export const HeroHeader = () => {
                         <div className="hidden lg:flex lg:w-fit lg:gap-6 lg:items-center">
                             <ModeToggle size="sm" />
                             <Button asChild size="sm">
-                                <Link href="#contact">
+                                <Link href="/contact">
                                     <span>Get in touch</span>
                                 </Link>
                             </Button>
@@ -128,7 +127,7 @@ export const HeroHeader = () => {
                         <ModeToggle size="sm" />
                         <Button asChild size="sm">
                             <Link
-                                href="#contact"
+                                href="/contact"
                                 onClick={() => setMenuState(false)}
                             >
                                 <span>Get in touch</span>

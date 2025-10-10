@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { HeroHeader } from "@/components/header";
 import HeroSection from "@/components/hero-section";
 import FooterSection from "@/components/footer";
+import StatsSection from "@/components/stats";
 import {
     Cloud,
     Database,
@@ -155,45 +156,8 @@ export default function Home() {
                 {/* Hero Section */}
                 <HeroSection />
 
-                {/* Credibility Strip */}
-                <section className="bg-background pb-16 pt-16 md:pb-20 md:pt-20">
-                    <div className="mx-auto max-w-5xl px-6">
-                        <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-sm md:text-base">
-                            <div className="flex flex-col items-center gap-1">
-                                <span className="text-3xl font-bold text-foreground">
-                                    130+
-                                </span>
-                                <span className="text-muted-foreground">
-                                    projects delivered
-                                </span>
-                            </div>
-                            <div className="flex flex-col items-center gap-1">
-                                <span className="text-3xl font-bold text-foreground">
-                                    10+
-                                </span>
-                                <span className="text-muted-foreground">
-                                    years of expertise
-                                </span>
-                            </div>
-                            <div className="flex flex-col items-center gap-1">
-                                <span className="text-3xl font-bold text-foreground">
-                                    Multi
-                                </span>
-                                <span className="text-muted-foreground">
-                                    lingual deployments
-                                </span>
-                            </div>
-                            <div className="flex flex-col items-center gap-1">
-                                <span className="text-3xl font-bold text-foreground">
-                                    Cloud
-                                </span>
-                                <span className="text-muted-foreground">
-                                    + cybersecurity
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                {/* Stats Section */}
+                <StatsSection />
 
                 {/* Capabilities Section */}
                 <section
@@ -248,28 +212,26 @@ export default function Home() {
                                 India
                             </p>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {benefits.map((benefit, index) => {
                                 const Icon = benefit.icon;
                                 return (
-                                    <div
+                                    <Card
                                         key={index}
-                                        className="flex gap-4 p-6 rounded-xl bg-background/50 border border-border/50 hover:bg-background transition-colors duration-300"
+                                        className="hover:shadow-lg transition-shadow duration-300 border-border/50"
                                     >
-                                        <div className="flex-shrink-0">
-                                            <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center">
-                                                <Icon className="size-5 text-secondary" />
+                                        <CardHeader>
+                                            <div className="mb-4 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                                                <Icon className="size-6 text-primary" />
                                             </div>
-                                        </div>
-                                        <div>
-                                            <h3 className="font-semibold text-lg mb-2">
+                                            <CardTitle>
                                                 {benefit.title}
-                                            </h3>
-                                            <p className="text-muted-foreground text-sm">
+                                            </CardTitle>
+                                            <CardDescription>
                                                 {benefit.description}
-                                            </p>
-                                        </div>
-                                    </div>
+                                            </CardDescription>
+                                        </CardHeader>
+                                    </Card>
                                 );
                             })}
                         </div>

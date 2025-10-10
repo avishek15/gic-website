@@ -43,7 +43,8 @@ export default function FooterSection() {
                         </Link>
                     ))}
                 </div>
-                <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
+                {/* Social media links hidden for now */}
+                {/* <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
                     <Link
                         href="#"
                         target="_blank"
@@ -169,7 +170,7 @@ export default function FooterSection() {
                             ></path>
                         </svg>
                     </Link>
-                </div>
+                </div> */}
                 <span className="text-muted-foreground block text-center text-sm">
                     {" "}
                     © {new Date().getFullYear()} Guardian Info Consultants. All
