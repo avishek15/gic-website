@@ -5,6 +5,7 @@ import Image from "next/image";
 import { TextEffect } from "@/components/ui/text-effect";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { ArrowRight } from "lucide-react";
+import { Hero3DLogo } from "@/components/hero-3d-logo";
 
 const transitionVariants = {
     item: {
@@ -29,9 +30,9 @@ const transitionVariants = {
 export default function HeroSection() {
     return (
         <section>
-            <div className="relative pt-28 md:pt-32">
-                <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>
-                <div className="mx-auto max-w-5xl px-6">
+            <div className="relative min-h-screen flex items-center pt-28 md:pt-32">
+                <Hero3DLogo />
+                <div className="mx-auto max-w-5xl px-6 w-full">
                     <div className="text-center lg:text-left sm:mx-auto lg:mr-auto lg:mt-0">
                         <TextEffect
                             preset="fade-in-blur"

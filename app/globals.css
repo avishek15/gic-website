@@ -66,12 +66,12 @@
 .dark {
     --background: oklch(0 0 0);
     --foreground: oklch(0.9219 0 0);
-    --card: oklch(0.2342 0.0467 250.4751);
+    --card: oklch(0.4137 0.0225 150.0518);
     --card-foreground: oklch(0.9219 0 0);
     --popover: oklch(0.2342 0.0467 250.4751);
     --popover-foreground: oklch(0.9219 0 0);
-    --primary: oklch(0.3739 0.1162 254.2088);
-    --primary-foreground: oklch(1 0 0);
+    --primary: oklch(1 0 0);
+    --primary-foreground: oklch(0.2342 0.0467 250.4751);
     --secondary: oklch(0.5987 0.1056 179.0356);
     --secondary-foreground: oklch(0.9219 0 0);
     --muted: oklch(0.3484 0.0464 182.3556);
