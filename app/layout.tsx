@@ -14,35 +14,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "GIC - Global Investment Club",
+    title: "GIC - Guardian InfoConsultancy",
     description:
-        "Connect with visionary founders, strategic investors, and industry partners. Join the premier global investment community driving innovation and growth.",
+        "GIC (Guardian InfoConsultancy) is a delivery-focused AI and IT services firm established in 2013. We design, build, and support secure digital systems for governments and enterprises worldwide.",
     keywords: [
-        "investment",
-        "founders",
-        "investors",
-        "partners",
-        "venture capital",
-        "startup ecosystem",
-        "global investment club",
+        "AI services",
+        "IT consulting",
+        "digital transformation",
+        "government IT solutions",
+        "enterprise software",
+        "secure digital systems",
+        "Guardian InfoConsultancy",
+        "GIC",
     ],
-    authors: [{ name: "GIC" }],
-    creator: "GIC",
-    publisher: "GIC",
-    metadataBase: new URL("https://globalinvestmentclub.com"),
+    authors: [{ name: "Guardian InfoConsultancy" }],
+    creator: "Guardian InfoConsultancy",
+    publisher: "Guardian InfoConsultancy",
     openGraph: {
-        title: "GIC - Global Investment Club",
+        title: "GIC - Guardian InfoConsultancy",
         description:
-            "Connect with visionary founders, strategic investors, and industry partners. Join the premier global investment community driving innovation and growth.",
+            "GIC is a delivery-focused AI and IT services firm established in 2013. We design, build, and support secure digital systems for governments and enterprises worldwide.",
         type: "website",
         locale: "en_US",
-        siteName: "Global Investment Club",
+        siteName: "Guardian InfoConsultancy",
     },
     twitter: {
         card: "summary_large_image",
-        title: "GIC - Global Investment Club",
+        title: "GIC - Guardian InfoConsultancy",
         description:
-            "Connect with visionary founders, strategic investors, and industry partners. Join the premier global investment community.",
+            "Delivery-focused AI and IT services firm. Designing secure digital systems for governments and enterprises worldwide since 2013.",
     },
 };
 
