@@ -11,9 +11,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { HeroHeader } from "@/components/header";
+import HeroSection from "@/components/hero-section";
 import FooterSection from "@/components/footer";
-import { TextEffect } from "@/components/ui/text-effect";
-import { AnimatedGroup } from "@/components/ui/animated-group";
 import {
     Cloud,
     Database,
@@ -154,93 +153,7 @@ export default function Home() {
                 </div>
 
                 {/* Hero Section */}
-                <section>
-                    <div className="relative pt-24">
-                        <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>
-                        <div className="mx-auto max-w-5xl px-6">
-                            <div className="sm:mx-auto lg:mr-auto lg:mt-0">
-                                <TextEffect
-                                    preset="fade-in-blur"
-                                    speedSegment={0.3}
-                                    as="h1"
-                                    className="mt-8 max-w-3xl text-balance text-5xl font-bold tracking-tight md:text-6xl lg:mt-16"
-                                >
-                                    Transforming governance. Empowering
-                                    millions.
-                                </TextEffect>
-                                <TextEffect
-                                    per="line"
-                                    preset="fade-in-blur"
-                                    speedSegment={0.3}
-                                    delay={0.5}
-                                    as="p"
-                                    className="mt-8 max-w-2xl text-pretty text-lg text-muted-foreground"
-                                >
-                                    Since 2013, we've partnered with governments
-                                    and enterprises to modernize critical
-                                    services—delivering 130+ projects that put
-                                    citizens first.
-                                </TextEffect>
-
-                                <TextEffect
-                                    preset="fade-in-blur"
-                                    speedSegment={0.3}
-                                    delay={1}
-                                    as="p"
-                                    className="mt-6 text-xl font-semibold text-secondary md:text-2xl"
-                                >
-                                    Built once. Serving millions.
-                                </TextEffect>
-
-                                <AnimatedGroup
-                                    variants={{
-                                        container: {
-                                            visible: {
-                                                transition: {
-                                                    staggerChildren: 0.05,
-                                                    delayChildren: 1.5,
-                                                },
-                                            },
-                                        },
-                                        item: transitionVariants.item,
-                                    }}
-                                    className="mt-12 flex items-center gap-2"
-                                >
-                                    <div
-                                        key={1}
-                                        className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5"
-                                    >
-                                        <Button
-                                            asChild
-                                            size="lg"
-                                            className="rounded-xl px-5 text-base"
-                                        >
-                                            <Link href="#contact">
-                                                <span className="text-nowrap">
-                                                    Get in touch
-                                                </span>
-                                            </Link>
-                                        </Button>
-                                    </div>
-                                    <Button
-                                        key={2}
-                                        asChild
-                                        size="lg"
-                                        variant="ghost"
-                                        className="h-10.5 rounded-xl px-5 text-base"
-                                    >
-                                        <Link href="#work">
-                                            <span className="text-nowrap">
-                                                View our work
-                                            </span>
-                                            <ArrowRight className="ml-2 size-4" />
-                                        </Link>
-                                    </Button>
-                                </AnimatedGroup>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <HeroSection />
 
                 {/* Credibility Strip */}
                 <section className="bg-background pb-16 pt-16 md:pb-20 md:pt-20">

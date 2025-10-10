@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/theme-toggle";
 import React from "react";
 import { cn } from "@/lib/utils";
-import { useScroll } from "motion/react";
+// Removed scroll-based background logic; header background is always visible
 
 const menuItems = [
     { name: "Capabilities", href: "#capabilities" },
@@ -17,24 +17,13 @@ const menuItems = [
 
 export const HeroHeader = () => {
     const [menuState, setMenuState] = React.useState(false);
-    const [scrolled, setScrolled] = React.useState(false);
-
-    const { scrollYProgress } = useScroll();
-
-    React.useEffect(() => {
-        const unsubscribe = scrollYProgress.on("change", (latest) => {
-            setScrolled(latest > 0.05);
-        });
-        return () => unsubscribe();
-    }, [scrollYProgress]);
 
     return (
         <header>
             <nav
                 data-state={menuState && "active"}
                 className={cn(
-                    "fixed z-20 w-full border-b transition-colors duration-150",
-                    scrolled && "bg-background/50 backdrop-blur-3xl"
+                    "fixed z-50 w-full border-b bg-background/50 backdrop-blur-3xl transition-colors duration-150"
                 )}
             >
                 <div className="mx-auto max-w-5xl px-6 transition-all duration-300">
@@ -93,20 +82,35 @@ export const HeroHeader = () => {
             {/* Mobile Full-Screen Menu - Outside nav for proper z-index */}
             <div
                 className={cn(
-                    "fixed inset-0 z-50 flex flex-col items-center justify-center bg-background/95 backdrop-blur-lg transition-all duration-300 lg:hidden",
+                    "fixed inset-0 z-[60] flex flex-col bg-background/95 backdrop-blur-lg transition-all duration-300 lg:hidden pointer-events-none",
                     menuState ? "opacity-100 visible" : "opacity-0 invisible"
                 )}
             >
-                {/* Close button positioned at top right */}
-                <button
-                    onClick={() => setMenuState(false)}
-                    aria-label="Close Menu"
-                    className="absolute top-6 right-6 z-10 p-2 rounded-full hover:bg-accent transition-colors duration-150"
-                >
-                    <X className="size-6" />
-                </button>
+                {/* Header container matching nav bar positioning */}
+                <div className="mx-auto w-full max-w-5xl px-6 py-3 pointer-events-auto">
+                    <div className="flex items-center justify-between">
+                        {/* Logo positioned to match nav */}
+                        <Link
+                            href="/"
+                            onClick={() => setMenuState(false)}
+                            className="flex items-center"
+                        >
+                            <Logo />
+                        </Link>
 
-                <div className="flex flex-col items-center space-y-8">
+                        {/* Close button positioned to match menu toggle */}
+                        <button
+                            onClick={() => setMenuState(false)}
+                            aria-label="Close Menu"
+                            className="-m-2.5 -mr-4 cursor-pointer p-2.5"
+                        >
+                            <X className="size-6" />
+                        </button>
+                    </div>
+                </div>
+
+                {/* Menu items centered in remaining space */}
+                <div className="flex flex-1 flex-col items-center justify-center space-y-8 pointer-events-auto">
                     <ul className="space-y-8 text-center">
                         {menuItems.map((item, index) => (
                             <li key={index}>

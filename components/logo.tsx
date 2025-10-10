@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export const Logo = ({
     className,
@@ -8,53 +9,22 @@ export const Logo = ({
     uniColor?: boolean;
 }) => {
     return (
-        <div className={cn("flex items-center gap-2", className)}>
-            <svg
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-            >
-                <rect
-                    width="40"
-                    height="40"
-                    rx="8"
-                    fill={uniColor ? "currentColor" : "url(#logo-gradient)"}
-                />
-                <path
-                    d="M8 20C8 13.3726 13.3726 8 20 8V12C15.5817 12 12 15.5817 12 20H8Z"
-                    fill="white"
-                />
-                <path
-                    d="M20 8C26.6274 8 32 13.3726 32 20H28C28 15.5817 24.4183 12 20 12V8Z"
-                    fill="white"
-                    opacity="0.8"
-                />
-                <path
-                    d="M32 20C32 26.6274 26.6274 32 20 32V28C24.4183 28 28 24.4183 28 20H32Z"
-                    fill="white"
-                    opacity="0.6"
-                />
-                <path
-                    d="M20 32C13.3726 32 8 26.6274 8 20H12C12 24.4183 15.5817 28 20 28V32Z"
-                    fill="white"
-                    opacity="0.4"
-                />
-                <defs>
-                    <linearGradient
-                        id="logo-gradient"
-                        x1="0"
-                        y1="0"
-                        x2="40"
-                        y2="40"
-                        gradientUnits="userSpaceOnUse"
-                    >
-                        <stop stopColor="#3b82f6" />
-                        <stop offset="1" stopColor="#06b6d4" />
-                    </linearGradient>
-                </defs>
-            </svg>
-            <span className="text-xl font-bold">Guardian Info Consultants</span>
+        <div className={cn("flex items-center -gap-2", className)}>
+            <Image
+                src="/GIC-logo2.svg"
+                alt="GIC Logo"
+                width={50}
+                height={50}
+                className="h-24 w-24 dark:invert"
+            />
+            <div className="flex flex-col leading-tight">
+                <span className="text-xl font-bold tracking-wider">
+                    Guardian
+                </span>
+                <span className="text-xs font-medium tracking-wider">
+                    Info Consultants
+                </span>
+            </div>
         </div>
     );
 };
