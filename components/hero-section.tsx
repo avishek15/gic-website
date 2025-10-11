@@ -34,6 +34,7 @@ export default function HeroSection() {
                 <div className="mx-auto max-w-5xl px-6 w-full">
                     <div className="text-center lg:text-left sm:mx-auto lg:mr-auto lg:mt-0">
                         <TextEffect
+                            per="line"
                             preset="fade-in-blur"
                             speedSegment={0.3}
                             as="h1"
