@@ -5,6 +5,9 @@ export const metadata: Metadata = {
     title: "Portfolio | Guardian InfoConsultancy - Delivered Projects",
     description:
         "Explore GIC's portfolio of 130+ successfully delivered e-governance projects across India including SAMBAL MP, WCD Rajasthan, and TN Forest Department.",
+    alternates: {
+        canonical: "/portfolio",
+    },
     openGraph: {
         title: "Portfolio | Guardian InfoConsultancy - Delivered Projects",
         description:
