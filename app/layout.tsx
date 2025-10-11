@@ -14,35 +14,55 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "GIC - Guardian InfoConsultancy",
+    title: "Guardian InfoConsultancy | AI & IT Services for Government",
     description:
-        "GIC (Guardian InfoConsultancy) is a delivery-focused AI and IT services firm established in 2013. We design, build, and support secure digital systems for governments and enterprises worldwide.",
+        "Delivery-focused AI & IT firm modernizing government services. 130+ projects delivered since 2013 across India.",
     keywords: [
         "AI services",
         "IT consulting",
         "digital transformation",
         "government IT solutions",
+        "e-governance",
         "enterprise software",
         "secure digital systems",
         "Guardian InfoConsultancy",
         "GIC",
+        "government modernization",
+        "citizen services",
+        "India IT services",
     ],
     authors: [{ name: "Guardian InfoConsultancy" }],
     creator: "Guardian InfoConsultancy",
     publisher: "Guardian InfoConsultancy",
+    metadataBase: new URL("https://www.guardianinfoconsultants.com"),
+    alternates: {
+        canonical: "/",
+    },
     openGraph: {
-        title: "GIC - Guardian InfoConsultancy",
+        title: "Guardian InfoConsultancy | AI & IT Services for Government",
         description:
-            "GIC is a delivery-focused AI and IT services firm established in 2013. We design, build, and support secure digital systems for governments and enterprises worldwide.",
+            "Delivery-focused AI & IT firm modernizing government services. 130+ projects delivered since 2013 across India.",
         type: "website",
         locale: "en_US",
+        url: "https://www.guardianinfoconsultants.com",
         siteName: "Guardian InfoConsultancy",
     },
     twitter: {
         card: "summary_large_image",
-        title: "GIC - Guardian InfoConsultancy",
+        title: "Guardian InfoConsultancy | AI & IT Services for Government",
         description:
-            "Delivery-focused AI and IT services firm. Designing secure digital systems for governments and enterprises worldwide since 2013.",
+            "Delivery-focused AI & IT firm modernizing government services. 130+ projects delivered since 2013 across India.",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
     },
 };
 
@@ -51,8 +71,36 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Guardian InfoConsultancy",
+        alternateName: "GIC",
+        url: "https://www.guardianinfoconsultants.com",
+        logo: "https://www.guardianinfoconsultants.com/GIC-Logo.svg",
+        description:
+            "Delivery-focused AI & IT firm modernizing government services. 130+ projects delivered since 2013 across India.",
+        foundingDate: "2013",
+        address: {
+            "@type": "PostalAddress",
+            addressCountry: "IN",
+        },
+        sameAs: [],
+        contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "Business Inquiries",
+            url: "https://www.guardianinfoconsultants.com/contact",
+        },
+    };
+
     return (
         <html lang="en" suppressHydrationWarning>
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >

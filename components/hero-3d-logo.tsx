@@ -7,6 +7,8 @@ import Image from "next/image";
 export function Hero3DLogo() {
     const [isMobile, setIsMobile] = useState(false);
     const logoRef = useRef<HTMLDivElement>(null);
+    const rafRef = useRef<number | null>(null);
+    const isThrottledRef = useRef(false);
 
     // Smooth spring animations for mouse movement
     const springConfig = { damping: 20, stiffness: 100 };
@@ -33,30 +35,50 @@ export function Hero3DLogo() {
         // Only enable mouse interaction on desktop
         if (isMobile) return;
 
+        // Throttled mouse move handler using requestAnimationFrame
         const handleMouseMove = (e: MouseEvent) => {
-            if (!logoRef.current) return;
+            if (isThrottledRef.current) return;
 
-            const rect = logoRef.current.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
+            isThrottledRef.current = true;
 
-            // Calculate relative position (-0.5 to 0.5)
-            const relativeX = (e.clientX - centerX) / (rect.width / 2);
-            const relativeY = (e.clientY - centerY) / (rect.height / 2);
+            rafRef.current = requestAnimationFrame(() => {
+                if (!logoRef.current) {
+                    isThrottledRef.current = false;
+                    return;
+                }
 
-            x.set(relativeX);
-            y.set(relativeY);
+                const rect = logoRef.current.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                // Calculate relative position (-0.5 to 0.5)
+                const relativeX = (e.clientX - centerX) / (rect.width / 2);
+                const relativeY = (e.clientY - centerY) / (rect.height / 2);
+
+                x.set(relativeX);
+                y.set(relativeY);
+
+                isThrottledRef.current = false;
+            });
         };
 
         const handleMouseLeave = () => {
+            if (rafRef.current) {
+                cancelAnimationFrame(rafRef.current);
+            }
             x.set(0);
             y.set(0);
         };
 
-        window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove, {
+            passive: true,
+        });
         window.addEventListener("mouseleave", handleMouseLeave);
 
         return () => {
+            if (rafRef.current) {
+                cancelAnimationFrame(rafRef.current);
+            }
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("mouseleave", handleMouseLeave);
         };
@@ -74,11 +96,13 @@ export function Hero3DLogo() {
                     isMobile
                         ? {
                               transformStyle: "preserve-3d",
+                              willChange: "transform",
                           }
                         : {
                               rotateX,
                               rotateY,
                               transformStyle: "preserve-3d",
+                              willChange: "transform",
                           }
                 }
                 animate={
@@ -118,14 +142,16 @@ export function Hero3DLogo() {
                     style={{
                         transform: "translateZ(50px)",
                         transformStyle: "preserve-3d",
+                        willChange: "transform",
                     }}
                 >
                     <div className="relative">
                         <Image
                             src="/GIC-logo2.svg"
-                            alt="GIC Logo"
+                            alt="Guardian InfoConsultancy Logo"
                             width={800}
                             height={800}
+                            priority
                             className="opacity-20 dark:opacity-60 dark:invert drop-shadow-[0_0_30px_rgba(56,189,248,0.3)]"
                             style={{
                                 filter: "drop-shadow(0 0 30px rgba(56, 189, 248, 0.3))",
@@ -140,13 +166,15 @@ export function Hero3DLogo() {
                     style={{
                         transform: "translateZ(0px)",
                         transformStyle: "preserve-3d",
+                        willChange: "transform",
                     }}
                 >
                     <Image
                         src="/GIC-logo2.svg"
-                        alt="GIC Logo Shadow"
+                        alt=""
                         width={800}
                         height={800}
+                        loading="lazy"
                         className="opacity-10 dark:opacity-30 dark:invert blur-sm"
                     />
                 </motion.div>
@@ -157,13 +185,15 @@ export function Hero3DLogo() {
                     style={{
                         transform: "translateZ(-50px)",
                         transformStyle: "preserve-3d",
+                        willChange: "transform",
                     }}
                 >
                     <Image
                         src="/GIC-logo2.svg"
-                        alt="GIC Logo Back"
+                        alt=""
                         width={800}
                         height={800}
+                        loading="lazy"
                         className="opacity-5 dark:opacity-15 dark:invert"
                     />
                 </motion.div>

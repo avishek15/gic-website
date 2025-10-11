@@ -39,7 +39,7 @@ export default function HeroSection() {
                             as="h1"
                             className="mt-8 max-w-3xl text-balance text-5xl font-bold tracking-tight md:text-6xl lg:mt-16 mx-auto lg:mx-0"
                         >
-                            Transforming governance. Empowering millions.
+                            Transforming Governance. Empowering Millions.
                         </TextEffect>
                         <TextEffect
                             per="line"

@@ -1,0 +1,12 @@
+# robots.txt for Guardian InfoConsultancy
+# https://www.guardianinfoconsultants.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.guardianinfoconsultants.com/sitemap.xml
+
+# Disallow admin routes if any exist
+Disallow: /api/
+

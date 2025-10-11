@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
     Card,
     CardHeader,
-    CardTitle,
     CardDescription,
     CardContent,
 } from "@/components/ui/card";
@@ -31,90 +30,99 @@ import {
 const capabilities = [
     {
         icon: Database,
-        title: "AI/ML & Data",
+        title: "AI/ML & Data Analytics",
         description:
-            "NLP chatbots, predictive analytics, document classification",
+            "Advanced artificial intelligence and machine learning solutions including natural language processing chatbots, predictive analytics engines, automated document classification, and data-driven decision support systems tailored for government operations.",
     },
     {
         icon: Globe,
-        title: "Apps & Portals",
-        description: "Web/mobile, accessibility, performance-first",
+        title: "Web & Mobile Applications",
+        description:
+            "User-centric web and mobile application development with focus on accessibility compliance (WCAG), performance optimization, responsive design, and seamless integration with existing government infrastructure.",
     },
     {
         icon: Cloud,
         title: "Cloud & Cybersecurity",
-        description: "Migrations, DR, monitoring, hardening",
+        description:
+            "Comprehensive cloud migration strategies, disaster recovery planning, continuous security monitoring, infrastructure hardening, and compliance management to protect sensitive government data and ensure service availability.",
     },
     {
         icon: Building2,
         title: "E‑Governance Solutions",
         description:
-            "Citizen services, workflow automation, identity integration",
+            "End-to-end digital governance platforms including citizen service portals, workflow automation systems, identity and access management integration (Aadhaar, DigiLocker), and inter-departmental coordination tools.",
     },
     {
         icon: BarChart3,
-        title: "BI & Dashboards",
-        description: "Executive views, operational KPIs",
+        title: "Business Intelligence & Dashboards",
+        description:
+            "Real-time data visualization dashboards, executive information systems, operational KPI tracking, and custom reporting solutions that transform raw data into actionable insights for policy makers and administrators.",
     },
     {
         icon: Network,
-        title: "Integration & IoT",
-        description: "Sensors, telemetry, registry systems",
+        title: "System Integration & IoT",
+        description:
+            "Seamless integration of legacy systems with modern platforms, IoT sensor networks for smart governance, telemetry data collection, and inter-agency registry systems for unified data management.",
     },
 ];
 
 const benefits = [
     {
         icon: CheckCircle2,
-        title: "Proven delivery",
-        description: "130+ projects since 2013 across Gov/PSU/Enterprise",
+        title: "Proven Track Record",
+        description:
+            "Over 130 successfully delivered projects since 2013 spanning government departments, public sector undertakings, and enterprise clients. Our portfolio includes state-level e-governance implementations serving millions of citizens daily.",
     },
     {
         icon: Shield,
-        title: "Secure by design",
-        description: "Cloud posture, DR, monitoring, compliance-first",
+        title: "Security-First Approach",
+        description:
+            "Comprehensive security framework including cloud security posture management, disaster recovery protocols, 24/7 infrastructure monitoring, and strict compliance with government security standards (ISO 27001, CERT-In guidelines).",
     },
     {
         icon: Users,
-        title: "Citizen-first",
-        description: "Accessible, multilingual, mobile-ready experiences",
+        title: "Citizen-Centric Design",
+        description:
+            "Inclusive digital solutions with multilingual support, WCAG accessibility compliance, mobile-first responsive design, and intuitive user interfaces that work seamlessly across diverse user demographics and devices.",
     },
     {
         icon: Zap,
-        title: "Scale and reliability",
-        description: "From pilots to statewide rollouts with SLAs",
+        title: "Enterprise Scale & Reliability",
+        description:
+            "Proven capability to scale from pilot projects to statewide deployments handling millions of transactions. Our solutions are built with high availability architecture, performance SLAs, and robust failover mechanisms.",
     },
     {
         icon: CheckCircle2,
-        title: "Transparent engagement",
-        description: "Clear milestones, artifacts, and outcomes",
+        title: "Transparent Collaboration",
+        description:
+            "Agile project management with clearly defined milestones, regular stakeholder reviews, comprehensive documentation, knowledge transfer sessions, and measurable outcome tracking throughout the engagement lifecycle.",
     },
 ];
 
 const featuredProjects = [
     {
         title: "SAMBAL, Govt. of MP",
-        category: "Social welfare e‑governance",
+        category: "Social Welfare E‑Governance Platform",
         description:
-            "Comprehensive social welfare platform for benefit delivery and citizen service management.",
+            "A comprehensive statewide social welfare management system for Madhya Pradesh government enabling seamless benefit delivery, beneficiary tracking, scheme management, and real-time monitoring of welfare programs serving millions of citizens.",
         url: "https://sambal.mp.gov.in/",
-        status: "Delivered",
+        status: "Live in Production",
     },
     {
         title: "WCD Rajasthan",
-        category: "Department portal",
+        category: "Department Portal & Management System",
         description:
-            "Women and Child Development Department portal for program management and citizen engagement.",
+            "Integrated web portal and backend management system for Rajasthan's Women and Child Development Department, facilitating program implementation, citizen engagement, grievance redressal, and inter-departmental coordination.",
         url: "https://wcd.rajasthan.gov.in/home",
-        status: "Delivered",
+        status: "Live in Production",
     },
     {
-        title: "TN Forests",
-        category: "Department portal",
+        title: "TN Forests Department",
+        category: "Natural Resource Management Portal",
         description:
-            "Tamil Nadu Forest Department portal for forest management, conservation, and public services.",
+            "Comprehensive digital platform for Tamil Nadu Forest Department covering forest resource management, wildlife conservation tracking, public service delivery, permit processing, and environmental data management.",
         url: "https://www.forests.tn.gov.in/",
-        status: "Delivered",
+        status: "Live in Production",
     },
 ];
 
@@ -138,6 +146,30 @@ export default function Home() {
 
                 {/* Stats Section */}
                 <StatsSection />
+
+                {/* Intro Section */}
+                <section className="bg-background py-12 md:py-16">
+                    <div className="mx-auto max-w-6xl px-6">
+                        <div className="max-w-4xl mx-auto text-center">
+                            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                                Guardian InfoConsultancy (GIC) is a trusted
+                                partner in digital transformation for government
+                                and enterprise organizations across India. Since
+                                our founding in 2013, we&apos;ve specialized in
+                                delivering mission-critical AI, data analytics,
+                                and e-governance solutions that serve millions
+                                of citizens. Our expertise spans artificial
+                                intelligence, cloud infrastructure,
+                                cybersecurity, and citizen-centric application
+                                development. We combine deep technical knowledge
+                                with an understanding of public sector
+                                requirements to build scalable, secure, and
+                                accessible digital systems that drive real-world
+                                impact.
+                            </p>
+                        </div>
+                    </div>
+                </section>
 
                 {/* Capabilities Section */}
                 <section
@@ -166,10 +198,10 @@ export default function Home() {
                                             <div className="mb-4 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                                                 <Icon className="size-6 text-primary" />
                                             </div>
-                                            <CardTitle>
+                                            <h3 className="text-xl font-semibold mb-2">
                                                 {capability.title}
-                                            </CardTitle>
-                                            <CardDescription>
+                                            </h3>
+                                            <CardDescription className="text-sm">
                                                 {capability.description}
                                             </CardDescription>
                                         </CardHeader>
@@ -185,7 +217,7 @@ export default function Home() {
                     <div className="mx-auto max-w-6xl px-6">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                                Why partner with GIC
+                                Why Partner with GIC
                             </h2>
                             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                                 Trusted by governments and enterprises across
@@ -204,10 +236,10 @@ export default function Home() {
                                             <div className="mb-4 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                                                 <Icon className="size-6 text-primary" />
                                             </div>
-                                            <CardTitle>
+                                            <h3 className="text-xl font-semibold mb-2">
                                                 {benefit.title}
-                                            </CardTitle>
-                                            <CardDescription>
+                                            </h3>
+                                            <CardDescription className="text-sm">
                                                 {benefit.description}
                                             </CardDescription>
                                         </CardHeader>
@@ -223,11 +255,11 @@ export default function Home() {
                     <div className="mx-auto max-w-6xl px-6">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                                Featured Work
+                                Featured Projects
                             </h2>
                             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                                Delivering impactful solutions for government
-                                and public services
+                                Real-world implementations delivering impactful
+                                digital governance solutions across India
                             </p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -242,12 +274,12 @@ export default function Home() {
                                                 {project.status}
                                             </Badge>
                                         </div>
-                                        <CardTitle className="text-xl">
+                                        <h3 className="text-xl font-semibold mb-2">
                                             {project.title}
-                                        </CardTitle>
-                                        <CardDescription className="text-base">
+                                        </h3>
+                                        <p className="text-sm font-medium text-primary mb-2">
                                             {project.category}
-                                        </CardDescription>
+                                        </p>
                                     </CardHeader>
                                     <CardContent className="flex-1 flex flex-col">
                                         <p className="text-sm text-muted-foreground mb-6 flex-1">
@@ -264,7 +296,7 @@ export default function Home() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                View Live
+                                                View Live Site
                                                 <ArrowRight className="ml-2 size-4" />
                                             </a>
                                         </Button>
@@ -282,16 +314,17 @@ export default function Home() {
                 >
                     <div className="mx-auto max-w-4xl px-6 text-center">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                            Let&apos;s modernize critical services—securely and
-                            at scale
+                            Ready to Transform Your Digital Services?
                         </h2>
                         <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-                            Ready to transform your digital infrastructure? Get
-                            in touch with our team today.
+                            Partner with us to modernize critical infrastructure
+                            securely and at scale. Our team brings proven
+                            expertise in delivering government-grade digital
+                            solutions that serve millions.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" variant="secondary" asChild>
-                                <Link href="/contact">Talk to us</Link>
+                                <Link href="/contact">Get in Touch</Link>
                             </Button>
                             <Button
                                 size="lg"
@@ -299,7 +332,7 @@ export default function Home() {
                                 asChild
                                 className="bg-transparent border-primary-foreground/20 hover:bg-primary-foreground/10 text-primary-foreground"
                             >
-                                <Link href="/portfolio">View case studies</Link>
+                                <Link href="/portfolio">Explore Our Work</Link>
                             </Button>
                         </div>
                     </div>
