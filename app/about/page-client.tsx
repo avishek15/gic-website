@@ -34,7 +34,7 @@ const team = [
     },
     {
         name: "Nikhil Hakla",
-        role: "Managing Director & Chief Executive Officer",
+        role: "Director and Chief Operating Officer",
         bio: "AI expert and network engineer with 10+ years of experience spanning AI/ML, cybersecurity, and network infrastructure. Serial entrepreneur leading multiple ventures including Rajasthan Desi Food Cart Bazaar, Timeless Dwellings (heritage property preservation), and Grandeur Gala Wedding. Drives GIC's strategic vision, business development, and client outcomes across multi-agency programs, ensuring alignment between objectives and delivery excellence.",
         image: "/nikhil.webp",
         linkedin: "https://www.linkedin.com/in/nikhil-hakla-54597416b",
