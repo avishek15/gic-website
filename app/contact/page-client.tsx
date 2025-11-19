@@ -14,11 +14,18 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { submitContactForm } from "./actions";
 
 const regions = [
-    "North America",
-    "Europe",
-    "Singapore",
-    "Israel",
-    "India",
+    "Americas - Eastern Time (US East Coast, Canada, Brazil)",
+    "Americas - Central Time (US Central, Mexico)",
+    "Americas - Pacific Time (US West Coast, Canada)",
+    "Europe - GMT/BST (UK, Ireland, Portugal)",
+    "Europe - CET/CEST (Germany, France, Spain, Italy, Netherlands, Switzerland)",
+    "Europe - EET/EEST (Eastern Europe, Greece, Finland)",
+    "Middle East - GST/AST (UAE, Saudi Arabia, Qatar, Kuwait, Israel)",
+    "South Asia - IST (India, Sri Lanka)",
+    "Southeast Asia - SGT/MYT/PHT (Singapore, Malaysia, Philippines, Indonesia)",
+    "East Asia - JST/KST (Japan, South Korea)",
+    "East Asia - CST (China, Taiwan, Hong Kong)",
+    "Australia - AEST/AWST (Australia, New Zealand)",
     "Other",
 ];
 
@@ -135,10 +142,9 @@ export default function ContactPageClient() {
                             Guardian InfoConsultancy brings over a decade of
                             expertise in delivering government-grade AI and IT
                             solutions. Our team is available to engage with
-                            clients across multiple time zones including US,
-                            Europe, Singapore, and Israel. Share your
-                            requirements, and we&apos;ll respond with a detailed
-                            proposal within 24 hours.
+                            clients across multiple time zones worldwide. Share
+                            your requirements, and we&apos;ll respond with a
+                            detailed proposal within 48 hours (2 days).
                         </p>
                     </div>
                 </section>
@@ -160,9 +166,10 @@ export default function ContactPageClient() {
                                             plan outlining our approach,
                                             proposed timelines, resourcing, and
                                             budget ranges. Our team is ready to
-                                            engage with clients across US,
-                                            Europe, Singapore, and Israel time
-                                            zones.
+                                            engage with clients across multiple
+                                            time zones worldwide, ensuring
+                                            seamless collaboration regardless of
+                                            your location.
                                         </p>
                                     </CardHeader>
                                 </Card>
@@ -237,8 +244,8 @@ export default function ContactPageClient() {
                                                     </p>
                                                     <p className="text-muted-foreground">
                                                         Serving clients across
-                                                        US, Europe, Singapore,
-                                                        and Israel time zones
+                                                        multiple time zones
+                                                        worldwide
                                                     </p>
                                                 </div>
                                             </div>
@@ -332,13 +339,25 @@ export default function ContactPageClient() {
                                             <Label htmlFor="message">
                                                 Message *
                                             </Label>
+                                            <p className="text-sm text-muted-foreground">
+                                                Please include as much detail as
+                                                possible about your project
+                                                goals, requirements, use cases,
+                                                and any specific challenges. The
+                                                more information you provide,
+                                                the better prepared we&apos;ll
+                                                be for our first call. Feel free
+                                                to write in your native language
+                                                if that helps you express your
+                                                needs more clearly.
+                                            </p>
                                             <Textarea
                                                 id="message"
                                                 name="message"
                                                 required
                                                 value={formData.message}
                                                 onChange={handleChange}
-                                                placeholder="Tell us about your project goals and requirements..."
+                                                placeholder="Describe your project in detail - goals, requirements, use cases, challenges, timeline, budget considerations, etc. Don't worry about formatting or perfect writing. You can also write in your native language if that's easier..."
                                                 rows={6}
                                                 className="resize-none"
                                             />
@@ -413,8 +432,8 @@ export default function ContactPageClient() {
                                     Initial Review
                                 </h3>
                                 <p className="text-sm text-muted-foreground">
-                                    We review your inquiry and respond within 24
-                                    hours
+                                    We review your inquiry and respond within 48
+                                    hours (2 days)
                                 </p>
                             </div>
                             <div>
