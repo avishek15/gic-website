@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Globe2 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { submitContactForm } from "./actions";
 
 const regions = [
@@ -22,6 +23,7 @@ const regions = [
 ];
 
 export default function ContactPageClient() {
+    const { executeRecaptcha } = useGoogleReCaptcha();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -43,7 +45,27 @@ export default function ContactPageClient() {
         setSubmitStatus({ type: null, message: "" });
 
         try {
-            const result = await submitContactForm(formData);
+            // Execute reCAPTCHA
+            if (!executeRecaptcha) {
+                throw new Error(
+                    "reCAPTCHA not loaded. Please refresh the page."
+                );
+            }
+
+            let recaptchaToken: string;
+            try {
+                recaptchaToken = await executeRecaptcha("contact_form");
+                if (!recaptchaToken) {
+                    throw new Error("Failed to generate reCAPTCHA token");
+                }
+            } catch (recaptchaError) {
+                console.error("reCAPTCHA execution error:", recaptchaError);
+                throw new Error(
+                    "reCAPTCHA verification failed. Please try again."
+                );
+            }
+
+            const result = await submitContactForm(formData, recaptchaToken);
 
             if (result.success) {
                 setSubmitStatus({

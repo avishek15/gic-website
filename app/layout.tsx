@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/themeprovider";
+import { ReCaptchaProvider } from "@/providers/recaptcha-provider";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
 const geistSans = Geist({
@@ -111,8 +112,10 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    {children}
-                    <WhatsAppButton phoneNumber="+91 82095 37316" />
+                    <ReCaptchaProvider>
+                        {children}
+                        <WhatsAppButton phoneNumber="+91 82095 37316" />
+                    </ReCaptchaProvider>
                 </ThemeProvider>
             </body>
         </html>

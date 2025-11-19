@@ -21,6 +21,45 @@ const SHEET_NAME = "Sheet1";
 const TIMESTAMP_HEADER = "Timestamp";
 
 /**
+ * Verify reCAPTCHA token with Google's API
+ */
+async function verifyRecaptchaToken(token: string): Promise<boolean> {
+    const secretKey = process.env.GOOGLE_CAPTCHA_SECRET_KEY;
+
+    if (!secretKey) {
+        console.error("GOOGLE_CAPTCHA_SECRET_KEY is not set");
+        return false;
+    }
+
+    try {
+        const response = await fetch(
+            "https://www.google.com/recaptcha/api/siteverify",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `secret=${encodeURIComponent(secretKey)}&response=${encodeURIComponent(token)}`,
+            }
+        );
+
+        const data = await response.json();
+
+        // Check if verification was successful and score is acceptable
+        // reCAPTCHA v3 returns a score from 0.0 to 1.0 (1.0 is very likely a human)
+        // Typically, scores above 0.5 are considered acceptable
+        return (
+            data.success === true &&
+            data.score !== undefined &&
+            data.score >= 0.5
+        );
+    } catch (error) {
+        console.error("reCAPTCHA verification error:", error);
+        return false;
+    }
+}
+
+/**
  * Extract sheet ID from Google Sheets URL
  */
 function extractSheetId(url: string): string | null {
@@ -107,9 +146,28 @@ function buildValuesArray(
  * Server action to submit contact form data to Google Sheets
  */
 export async function submitContactForm(
-    fields: FormFields
+    fields: FormFields,
+    recaptchaToken: string
 ): Promise<ActionResult> {
     try {
+        // Verify reCAPTCHA token first
+        if (!recaptchaToken) {
+            return {
+                success: false,
+                message: "reCAPTCHA verification failed",
+                error: "Missing reCAPTCHA token",
+            };
+        }
+
+        const isRecaptchaValid = await verifyRecaptchaToken(recaptchaToken);
+        if (!isRecaptchaValid) {
+            return {
+                success: false,
+                message: "reCAPTCHA verification failed",
+                error: "Please try again. If the problem persists, refresh the page.",
+            };
+        }
+
         // Validate required fields
         if (!fields.name || !fields.email || !fields.organization) {
             return {
