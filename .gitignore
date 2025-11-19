@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# google sheets
+website-forms-excel-mapping-156da015e663.json

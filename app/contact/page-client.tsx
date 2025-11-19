@@ -8,7 +8,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Globe2 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { useState } from "react";
+import { submitContactForm } from "./actions";
 
 const regions = [
     "North America",
@@ -29,10 +31,56 @@ export default function ContactPageClient() {
         consent: false,
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{
+        type: "success" | "error" | null;
+        message: string;
+    }>({ type: null, message: "" });
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission - you can add your logic here
-        console.log("Form submitted:", formData);
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: "" });
+
+        try {
+            const result = await submitContactForm(formData);
+
+            if (result.success) {
+                setSubmitStatus({
+                    type: "success",
+                    message:
+                        "Thank you! Your message has been sent successfully.",
+                });
+
+                // Reset form
+                setFormData({
+                    name: "",
+                    email: "",
+                    organization: "",
+                    region: "",
+                    message: "",
+                    consent: false,
+                });
+            } else {
+                setSubmitStatus({
+                    type: "error",
+                    message:
+                        result.error ||
+                        result.message ||
+                        "Failed to submit form. Please try again.",
+                });
+            }
+        } catch (error) {
+            setSubmitStatus({
+                type: "error",
+                message:
+                    error instanceof Error
+                        ? error.message
+                        : "Failed to submit form. Please try again.",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (
@@ -129,6 +177,22 @@ export default function ContactPageClient() {
                                                         className="text-muted-foreground hover:text-primary transition-colors"
                                                     >
                                                         +91 8306946109
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-start gap-3">
+                                                <FaWhatsapp className="size-5 text-primary mt-0.5 flex-shrink-0" />
+                                                <div>
+                                                    <p className="font-semibold text-sm mb-1">
+                                                        WhatsApp
+                                                    </p>
+                                                    <a
+                                                        href="https://wa.me/918209537316"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-muted-foreground hover:text-primary transition-colors"
+                                                    >
+                                                        +91 82095 37316
                                                     </a>
                                                 </div>
                                             </div>
@@ -278,12 +342,28 @@ export default function ContactPageClient() {
                                             </Label>
                                         </div>
 
+                                        {submitStatus.type && (
+                                            <div
+                                                className={`p-4 rounded-md ${
+                                                    submitStatus.type ===
+                                                    "success"
+                                                        ? "bg-green-50 text-green-800 border border-green-200 dark:bg-green-950 dark:text-green-200 dark:border-green-800"
+                                                        : "bg-red-50 text-red-800 border border-red-200 dark:bg-red-950 dark:text-red-200 dark:border-red-800"
+                                                }`}
+                                            >
+                                                {submitStatus.message}
+                                            </div>
+                                        )}
+
                                         <Button
                                             type="submit"
                                             size="lg"
                                             className="w-full"
+                                            disabled={isSubmitting}
                                         >
-                                            Send Message
+                                            {isSubmitting
+                                                ? "Sending..."
+                                                : "Send Message"}
                                         </Button>
                                     </form>
                                 </CardContent>
